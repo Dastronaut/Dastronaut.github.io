@@ -1,0 +1,11 @@
+POSITION:
+- Relative: 
+- Absolute: đi kèm với relative bọc ở ngoài để k bị đẩy ra body (transform)
+- Sticky: tp chứa sticky luôn nằm ở trên đầu trang khi croll 
+- Fixed: cố định 1 div k bị croll theo trang
+
+HOVER: 
+- Dùng trong class: .Note: Hover {}
+- Dùng trong thẻ: h1 : hover {}
+
+FOCUS: 
