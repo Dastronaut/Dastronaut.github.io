@@ -97,6 +97,7 @@ h5.Marley {
     left: 25px;
     opacity: 0;
 }
+
 .image-Lily:hover {
     transform: translate(-20px, 0px);
     opacity: 1;

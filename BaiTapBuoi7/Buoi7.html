@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai Tap JavaScript</title>
+    <link rel="stylesheet" href="./Buoi7.css">
+    <!-- <link rel="stylesheet" href="./Buoi7.js"> -->
+</head>
+
+<body>
+    <!-- Bai Tap 1 -->
+    <div class="block">
+        <div>
+            <h4>BT1: Viết chương trình hiển thị ngày giờ</h4>
+        </div>
+        <div class="Bai1" id="ShowBai1">
+            <button class="btn" id="bai1">Show</button>
+            <p id="ngaygio"></p>
+        </div>
+    </div>
+
+    <!-- Bai Tap 2 -->
+    <div class="block">
+        <div>
+            <h4>BT2: In ra ngày tháng năm theo các định dạng:</h4>
+        </div>
+        <div class="Bai2" id="ShowBai2">
+            <button class="btn" id="bai2">Show</button>
+            <p id="dinhdang1"></p>
+            <p id="dinhdang2"></p>
+            <p id="dinhdang3"></p>
+            <p id="dinhdang4"></p>
+        </div>
+    </div>
+
+    <!-- Bai Tap 3 -->
+    <div class="block">
+        <div>
+            <h4>BT3: Kiểm tra xem một số nguyên đã cho có phải dãy tăng hay không</h4>
+        </div>
+            <input class="inp" type="number" id="input3">
+            <button class="btn" onclick="KtraTang()">Test</button>
+        </div>
+
+    <!-- Bai Tap 4 -->
+    <div class="block">
+        <div>
+            <h4>BT4: Thay thế mọi kí tự đã cho trong chuỗi bằng một kí tự theo sau nó</h4>
+        </div>
+        <div>
+            <input class="inp" type="text" id="input4">
+            <button class="btn" onclick="ThayChuoi()">Change it</button>
+        </div>
+    </div>
+
+    <!-- Bai Tap 5 -->
+    <div class="block">
+        <div>
+            <h4>BT5: In ra chuỗi có 3 kí tự ở giữa của một chuỗi có độ dài lẻ</h4>
+        </div>
+        <div>
+            <input class="inp" type="text" id="input5">
+            <button class="btn" onclick="subString()">Get it</button>
+        </div>
+    </div>
+
+    <!-- Bai Tap 6 -->
+    <div class="block">
+        <h4>BT6: Số hiển thị nhiều nhất trong mảng</h4>
+        <div>
+            <input class="inp" type="text" id="input6">
+            <button class="btn" onclick="CountArray()">Do it</button>
+        </div>
+    </div>
+    
+    <!-- Bai Tap 7 -->
+    <div class="block">
+        <div>
+            <h4>BT7: Kiểm tra xem chuỗi có chứa "java" hay không</h4>
+        </div>
+        <div>
+            <input class="inp" type="text" id="input7">
+            <button class="btn" onclick="CheckJava()">Check it</button>
+        </div>
+    </div>
+
+    <!-- Bai Tap 8 -->
+    <div class="block">
+        <div>
+            <h4>BT8: Lấy tên tháng từ một số cụ thể</h4>
+        </div>
+        <div>
+            <input class="inp" type="number" id="input8">
+            <button class="btn" onclick="ParseMonth()">Do it</button>
+        </div>
+    </div>
+
+    <!-- Bai Tap 9 -->
+    <div class="block">
+        <div>
+            <h4>BT9: Nhập một chuỗi và tìm từ dài nhất trong chuỗi</h4>
+        </div>
+        <div>
+            <input class="inp" type="text" id="input9">
+            <button class="btn" onclick="CheckLength()">Find it</button>
+        </div>
+    </div>
+
+    <!-- Bai Tap 8 -->
+    <div class="block">
+        <div>
+            <h4>BT10: In ra các số nguyên tố trong khoảng 2 số nhập vào</h4>
+        </div>
+        <div>
+            From: 
+            <input type="number" id="input101"> <br> <br>
+            To:   
+            <input class="inp" class="inp" type="number" id="input102"> <br>
+            <button class="btn" class="btn" onclick="AmongSNT()">Print it</button>
+            <p id="print"></p>
+        </div>
+    </div>
+    <script src="./Buoi7.js">
+    </script>
+</body>
+</html>
