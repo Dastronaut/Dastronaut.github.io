@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Buoi8.css">
+    <title>Bai Tap 8</title>
+</head>
+<body>
+        <div class="header">
+            Bài Tập JavaScript!
+        </div>
+
+        <div class="box-content">
+            <form action="" method="POST">
+                <div class="parent-content">
+                    <div class="child-content">
+                        <p>Item Name</p>
+                            <input type="text" id="iteminput" name="item" max="10" onchange="ItemField()" placeholder="Items Name...">
+                            <div>
+                                <p class="invaliditem" id="invaliditem"></p>
+                            </div>
+                    </div>
+                    
+                    <div class="child-content">
+                        <p>Category</p>
+                        <div>
+                            <select id="inpcats" name="categorys" class="cat-box-size">
+                                <option value="">Please Select a Category...</option>
+                                <option value="Category 1">Category 1</option>
+                                <option value="Category 2">Category 2</option>
+                                <option value="Category 3">Category 3</option>
+                            </select>
+                        </div>
+                        <p class="invaliditem" id="invalidcats"></p>
+                    </div>
+                    <div class="child-content">
+                        <input type="file" accept="image/ipeg, img/jpg" value="Choose File" class="cf-btn" onchange="loadFile(event)" required>
+                        <p class="invaliditem" id="invalidimg"></p>
+                        <p><img id="uploadedimg" height="100" width="200" style="object-fit: contain;"></p>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" id="inpsubmit" value="Submit" class="submit-btn">
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <table>
+                <thead class="table-data">
+                    <tr>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    <script src="./buoi8.js"></script>
+</body>
+</html>
