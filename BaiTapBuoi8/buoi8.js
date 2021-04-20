@@ -7,9 +7,7 @@ const invalidname = document.getElementById("invalidcats");
 const invalidimged = document.getElementById("invalidimg");
 const submit = document.getElementById("inpsubmit");
 const isoutput = document.getElementById("Isoutput");
-const datalist = document.querySelector(".table-data");
-// const editbutton = document.querySelector(".edit-button");
-// const delbutton = document.querySelector(".delete-button");
+const datalist = document.getElementById("table-data");
 const arrdata = [];
 let saved = JSON.parse(localStorage.getItem("ListInfo"));
 function ItemField() {
@@ -45,7 +43,6 @@ function loadFileEdit(event) {
 
 function injectData() {
     saved?.map((item) => {
-        console.log(item);
         template(item)
     })
 }
@@ -53,8 +50,8 @@ function injectData() {
 injectData()
 
 function template(data) {
-    datalist.insertAdjacentHTML("beforeend", `
-    <tr>
+    datalist.innerHTML += `
+    <tr id="row_id_${data.IDs}">
         <th>${data.IDs}</th>
         <th>
             <input type="text" id="iteminput2_${data.IDs}" value="${data.ItemName}" onchange="ItemField()" name="item" max="10" disabled>
@@ -81,7 +78,7 @@ function template(data) {
         <th>
             <div id="edit-press_${data.IDs}">
                 <button class="edit-button" id="edit-button" onclick="EditData(${data.IDs})">Edit</button>
-                <button class="delete-button">Delete</button>
+                <button class="delete-button" onclick="DeleteData(${data.IDs})">Delete</button>
             </div>
             <div class="save-press" id="save-press_${data.IDs}">
                 <button class="Save-button" onclick="getData(${data.IDs})">Save</button>
@@ -89,7 +86,7 @@ function template(data) {
             </div>
         </th>
     </tr>
-    `);
+    `
 }
 
 function appendData(event) {
@@ -109,9 +106,6 @@ function appendData(event) {
         }
     }
     const id = Math.floor(Math.random() * 100);
-    if (saved != null) {
-        //template(saved);
-    }
     event.preventDefault();
     const name = inpname.value;
     const cate = inpcate.value;
@@ -123,14 +117,23 @@ function appendData(event) {
     };
     arrdata.push(data);
     template(data);
-    localStorage.setItem("ListInfo", JSON.stringify(arrdata));
+    window.localStorage.setItem("ListInfo", JSON.stringify(arrdata));
     saved = arrdata;
 }
 
 function setData(index) {
-    console.log("saved", saved);
-    let ids = saved.map((item) => item.IDs);
-    console.log(ids);
+    saved?.map((item) => {
+        if (item.IDs == index) {
+            item.ItemName = document.getElementById("iteminput2_" + index).value;
+            console.log(item.ItemName);
+            document.getElementById("iteminput2_" + index).value = item.ItemName;
+            item.Category = document.getElementById("inpcats_" + index).value;
+            console.log(item.Category);
+            document.getElementById("inpcats_" + index).value = item.Category;
+            console.log(saved);
+        }
+    });
+    
 }
 function canceled(index) {
     document.getElementById("iteminput2_" + index).disabled = true;
@@ -171,10 +174,21 @@ function EditData(index) {
     document.getElementById("save-press_" + index).style.display = 'initial';    
 }
 
+function DeleteData(index) {
+    for (let i = 0; i < saved.length; i++) {
+        if (saved[i].IDs == index) {
+            console.log("IDs = " + saved[i].IDs + ". Vi tri thu " + i);
+            saved.splice(i, 1);
+            document.getElementById("row_id_" + index).remove();
+            break;
+        }
+    }
+    window.localStorage.setItem("ListInfo", JSON.stringify(saved));
+}
 submit.addEventListener("click", appendData, false);
 
 // problem 1: chua hien anh sau khi bam save
 // problem 2: invalid khi edit
-// problem 3: khong save => refresh = mat
-// problem 4: Luu sau khi edit
-// problem 5: Chua delete
+// problem 3: khong save => refresh = mat - slove
+// problem 4: Luu sau khi edit - solve
+// problem 5: Chua delete - solve
